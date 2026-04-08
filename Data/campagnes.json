@@ -1,0 +1,20 @@
+﻿[
+  {
+    "Id": 1,
+    "Budget": 500.50,
+    "Acheteur": "Netflix",
+    "Commentaire": "lorem ipsum"
+  },
+  {
+    "Id": 2,
+    "Budget": 300.00,
+    "Acheteur": "Leclerc",
+    "Commentaire": "lorem ipsum"
+  },
+  {
+    "Id": 3,
+    "Budget": 700.00,
+    "Acheteur": "Carrefour",
+    "Commentaire": "lorem ipsum"
+  }
+]
