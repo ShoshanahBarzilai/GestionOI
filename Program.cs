@@ -1,4 +1,3 @@
-﻿using GestionOI.Campagne;
+﻿using GestionOI.Services;
 
-//ModelCampagne.AfficherCampagne();
-ModelCampagne.DataContent();
+ServiceCampagne.FindCampagneByAcheteur(args[0]);
