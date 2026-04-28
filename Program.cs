@@ -1,3 +1,11 @@
 ﻿using GestionOI.Services;
 
-ServiceCampagne.FindCampagneByAcheteur(args[0]);
+var builder = WebApplication.CreateBuilder(args);
+var app = builder.Build();
+
+app.MapGet("/campagnes", (string filtre) =>
+{
+    return ServiceCampagne.FilterCampagnes(filtre);
+});
+
+app.Run();

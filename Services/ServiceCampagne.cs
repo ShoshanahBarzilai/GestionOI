@@ -1,5 +1,6 @@
 ﻿using GestionOI.Models;
 using System.Text.Json;
+using System.Xml.Linq;
 
 
 namespace GestionOI.Services;
@@ -14,17 +15,22 @@ public class ServiceCampagne
         return dataJson ?? [];
     }
 
-    public static void FindCampagneByAcheteur(string acheteur)
+    public static List<string> FilterCampagnes(string filtre)
     {
         var data = DataContent();
-        var elements = data
-            .Where(campagne => !string.IsNullOrEmpty(campagne.Acheteur) && campagne.Acheteur.Contains(acheteur, StringComparison.OrdinalIgnoreCase))
-            .Select(campagne => campagne.Nom)
-            .ToList();
-
-
-        foreach (var campagne in elements)
-            Console.WriteLine(campagne);
+        var result = filtre switch
+        {
+            "nom" => data
+                .Where(campagne => !string.IsNullOrEmpty(campagne.Nom))
+                .Select(campagne => campagne.Nom!)
+                .ToList(),
+            "acheteur" => data
+                .Where(campagne => !string.IsNullOrEmpty(campagne.Acheteur))
+                .Select(campagne => campagne.Acheteur!)
+                .ToList(),
+            _ => []
+        };
+       
+        return result;
     }
-
 }
