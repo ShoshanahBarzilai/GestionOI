@@ -1,7 +1,5 @@
 ﻿using GestionOI.Models;
 using System.Text.Json;
-using System.Xml.Linq;
-
 
 namespace GestionOI.Services;
 
